@@ -16,7 +16,7 @@ const App = () => {
     const fetchData = async () => {
       try {
         const { data } = await getPhotos(searchPhrase);
-        setImages([...data]);
+        setImages(data.results);
         console.log(data);
       } catch (error) {
         console.log(error);
