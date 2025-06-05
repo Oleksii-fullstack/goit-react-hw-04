@@ -8,21 +8,21 @@ import { getPhotos } from "./service/unsplashAPI";
 
 const App = () => {
   const [searchPhrase, setSearchPhrase] = useState("");
-  const [images, setImages] = useState();
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     if (!searchPhrase) return;
 
     const fetchData = async () => {
       try {
-        const data = await getPhotos(searchPhrase);
-        setImages(data);
+        const { data } = await getPhotos(searchPhrase);
+        setImages([...data]);
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-    console.log(data);
   }, [searchPhrase]);
 
   const handleFormSubmit = (value) => {
@@ -33,7 +33,7 @@ const App = () => {
     <Section>
       <Container>
         <SearchBar onSubmit={handleFormSubmit} />
-        {/* <ImageGallery /> */}
+        <ImageGallery galleryList={images} />
       </Container>
     </Section>
   );
