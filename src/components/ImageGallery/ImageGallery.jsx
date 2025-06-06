@@ -1,16 +1,26 @@
+import Grid from "../Grid/Grid";
+import GridItem from "../GridItem/GridItem";
 import ImageCard from "../ImageCard/ImageCard";
 
-const ImageGallery = ({ galleryList }) => {
+const ImageGallery = ({ galleryList, openModal }) => {
   return (
-    <ul>
-      {galleryList.map(({ id, alt_description, urls: { small } }) => {
-        return (
-          <li key={id}>
-            <ImageCard src={small} alt={alt_description} />
-          </li>
-        );
-      })}
-    </ul>
+    <Grid>
+      {galleryList.map(
+        ({ color, id, alt_description, urls: { small, regular } }) => {
+          return (
+            <GridItem key={id}>
+              <ImageCard
+                src={small}
+                alt={alt_description}
+                srcLarge={regular}
+                color={color}
+                openModal={openModal}
+              />
+            </GridItem>
+          );
+        }
+      )}
+    </Grid>
   );
 };
 

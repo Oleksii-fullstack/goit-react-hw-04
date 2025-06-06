@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiSearch } from "react-icons/fi";
 import toast from "react-hot-toast";
 
 const SearchBar = ({ onSubmit }) => {
@@ -28,7 +29,10 @@ const SearchBar = ({ onSubmit }) => {
           onChange={handleChange}
           value={value}
         />
-        <button type="submit">Search</button>
+        <button type="submit">
+          Search
+          <FiSearch size="16px" />
+        </button>
       </form>
     </header>
   );
