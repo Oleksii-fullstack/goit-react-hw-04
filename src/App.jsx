@@ -67,24 +67,26 @@ const App = () => {
   };
 
   return (
-    <Section>
-      <Container>
-        <SearchBar onSubmit={handleFormSubmit} />
-        {images.length > 0 && (
-          <ImageGallery galleryList={images} openModal={handleOpenModal} />
-        )}
-        {hasMorePhotos && <LoadMoreBtn onClick={handleLoadMore} />}
-        {error && <ErrorMessage error={error} />}
-        {isEmpty && <Heading />}
-        {isLoading && <Loader />}
-        <ImageModal
-          modalIsOpen={modalIsOpen}
-          closeModal={handleCloseModal}
-          src={modalImage.src}
-          alt={modalImage.alt}
-        />
-      </Container>
-    </Section>
+    <>
+      {/* <Section> */}
+      {/* <Container> */}
+      <SearchBar onSubmit={handleFormSubmit} />
+      {images.length > 0 && (
+        <ImageGallery galleryList={images} openModal={handleOpenModal} />
+      )}
+      {hasMorePhotos && <LoadMoreBtn onClick={handleLoadMore} />}
+      {error && <ErrorMessage error={error} />}
+      {isEmpty && <Heading />}
+      {isLoading && <Loader />}
+      <ImageModal
+        modalIsOpen={modalIsOpen}
+        closeModal={handleCloseModal}
+        src={modalImage.src}
+        alt={modalImage.alt}
+      />
+      {/* </Container> */}
+      {/* </Section> */}
+    </>
   );
 };
 
